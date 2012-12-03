@@ -5,7 +5,7 @@
 
   Authors: Luke Mahé (code)
            Marcin Wichary (code and design)
-           
+
            Dominic Mazzoni (browser compatibility)
            Charles Chen (ChromeVox support)
 
@@ -18,13 +18,13 @@
 
     <meta charset='utf-8'>
     <script
-      src='slides.js'></script>
+      src='assets/js/slides.js'></script>
     <script
-      src='jquery.js'></script>
+      src='assets/js/jquery.js'></script>
     <script
-      src='underscore.js'></script>
+      src='assets/js/underscore.js'></script>
     <script
-      src='backbone.js'></script>
+      src='assets/js/backbone.js'></script>
     <script>
       $(document).ready(function () {
         $('button.run').click(function () {
@@ -33,15 +33,16 @@
         });
       });
     </script>
-  </head>
-  
-  <style>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <style>
     /* Your individual styles here, or just use inline styles if that’s
        what you want. */
-    
+      
     * {font-family: "Bitstream Vera Sans Mono",courier, monospace;} 
     #title {margin-left: 80px; margin-top: 170px; overflow: hidden; font-size: 50%; line-height: 120%; background: white; border: 0px; white-space: pre; color: black}
-    
+      
 table {width: 400px; float: right; margin-bottom: 1em;}
 th {text-align: left;}
 pre {clear: both;}
@@ -79,7 +80,7 @@ margin: 0px;
     text-size: 300%;
     margin: 0.6em;
     }
-    
+      
 
     .centered {
     text-align: center;
@@ -103,7 +104,7 @@ margin: 0px;
     text-align: center;
     margin: 2em;
     }
-    
+      
     #todo-items .done-true {
     text-decoration: line-through;
     }
@@ -114,7 +115,8 @@ margin: 0px;
     a.profile:after {
       content: "";
     }
-  </style>
+    </style>
+  </head>
 
   <body>
 
