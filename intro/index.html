@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Testing</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides.js'></script>
+    <script
+      src='jquery.js'></script>
+    <script
+      src='underscore.js'></script>
+    <script
+      src='backbone.js'></script>
+    <script>
+      $(document).ready(function () {
+        $('button.run').click(function () {
+          var code = '(function () {' + ($(this).parents('article').find('pre').text()) + '}).call(this)';
+          eval(code);
+        });
+      });
+    </script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    
+    * {font-family: "Bitstream Vera Sans Mono",courier, monospace;} 
+    #title {margin-left: 80px; margin-top: 170px; overflow: hidden; font-size: 50%; line-height: 120%; background: white; border: 0px; white-space: pre; color: black}
+    
+table {width: 400px; float: right; margin-bottom: 1em;}
+th {text-align: left;}
+pre {clear: both;}
+
+/* * {font-family: 'lucida grande', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', helvetica, sans-serif;}*/
+#content, #postamble {margin: auto; width: 38em;}
+
+h2 { font-size: 1em; font-weight: bold; }
+h2:before {content: " * "}
+h3 { font-size: 1em; font-weight: bold}
+h3:before {content: " * "}
+#title,pre {background: white; border: 0px; font-family: "Bitstream Vera Sans Mono",courier, monospace;} 
+
+a, a:visited {
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    }
+p { text-align: justify; /*margin-bottom: 2em; margin-top: 2em;*/}
+pre.code, pre.example {border: 2px dashed black}
+ul {list-style-type:none}
+ul li:before { content: "+ "; color: black;}
+#postamble p {
+margin: 0px;
+}
+
+
+    article {
+      padding-top: 2em !important;
+    }
+
+    .section {
+    text-align: center;
+    font-weight: bold;
+    text-size: 300%;
+    margin: 0.6em;
+    }
+    
+
+    .centered {
+    text-align: center;
+    }
+
+
+    ol li::before {
+      content: '';
+    }
+
+
+    pre.compact {
+    margin: 0; text-size: 80%; line-height: 80%
+    }
+
+    .run {
+      float: right;
+    }
+
+    #todo-items {
+    text-align: center;
+    margin: 2em;
+    }
+    
+    #todo-items .done-true {
+    text-decoration: line-through;
+    }
+
+    a.profile:before {
+      content: "";
+    }
+    a.profile:after {
+      content: "";
+    }
+  </style>
+
+  <body>
+
+    <section class='slides layout-regular '>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article>
+        <div id="title">
+    _   _              _    ___  _            _     _                  _
+   /_\ | |_ __  ___ __| |_ / _ \| |__ ___ ___| |___| |_ ___   _ _  ___| |_
+  / _ \| | '  \/ _ (_-&lt;  _| (_) | '_ (_-&lt;/ _ \ / -_)  _/ -_)_| ' \/ -_)  _|
+ /_/ \_\_|_|_|_\___/__/\__|\___/|_.__/__/\___/_\___|\__\___(_)_||_\___|\__|
+        </div>
+        <center>
+          <div>
+            Parslow and Elliott's Test Emporium
+          <!-- Formatting with BR tags, I rule! -->
+          <br/>
+          <br/>
+          Thomas W Parslow & Simon J Elliott
+          <br/>
+          <br/>
+          tom@almostobsolete.net / simon@papercreatures.com
+          <br/>
+          @almostobsolete @purge
+          <br/>
+          http://almostobsolete.net http://papercreatures.com
+          </div>
+        </center>
+      </article>
+
+      <!-- INTRODUCTION -->
+
+      <article>
+        <h3>
+          What is testing?
+        </h3>
+        <ul>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Why YOU should test your code
+        </h3>
+        <ul>
+          
+        </ul>
+      </article>
+      
+      
+      <article>
+        <h3>
+          What is testing?
+        </h3>
+        <ul>
+          
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          Types of test
+        </h3>
+        <ul>
+          
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          Unit Tests
+        </h3>
+        <ul>
+          
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Integration Tests
+        </h3>
+        <ul>
+          
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          Testing terminology
+        </h3>
+        <ul>
+          <li>Test</li>
+          <li>Unit</li>
+          <li>Assertions</li>
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          Testing terminology
+        </h3>
+        <ul>
+          <li>TDD</li>
+          <li>BDD</li>
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          Testing terminology
+        </h3>
+        <ul>
+          <li>Spy</li>
+          <li>Stub</li>
+          <li>Mock</li>
+          <li>Fixtures</li>
+        </ul>
+      </article>
+
+      
+      <article>
+        <h3>
+          The JS Testing Libraries
+        </h3>
+        <ul>
+          <li>Jasmine</li> 
+          <li>QUnit</li>
+          <li>Mocha</li>
+          <li>Chai</li>
+          <li>Sinon</li>  
+        </ul>
+      </article>
+
+    </section>
+
+    
+<script src="http://static.getclicky.com/js" type="text/javascript"></script>
+<script type="text/javascript">clicky.init(227423);</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/227423ns.gif" /></p></noscript>
+
+<script>
+  var hash = document.location.hash;
+  function track() {
+    if(hash !== document.location.hash) {
+      hash = document.location.hash;
+      if (hash != '#1') {
+        clicky.log( document.location.pathname + document.location.hash.slice(1), 'SLIDE ' + document.location.hash + ' - ' + document.title, 'pageview' )
+      }
+    }
+  }
+  window.addEventListener("hashchange", track, false);
+</script>
+  </body>
+</html>
