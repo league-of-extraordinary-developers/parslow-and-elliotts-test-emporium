@@ -1,0 +1,76 @@
+Integration Testing
+  - Tests that run multiple parts of the
+    system together
+
+End to End testing
+  - Integration tests that try to run the whole system
+  - Use it like a user would
+
+Why do this
+  - Catches bugs that would fall between the cracks of unit tests
+  - Tests what really matters, that the system works for users
+  - Manual testing sucks
+
+Why not to do this
+  - Slower tests are don't get run as much
+  - Less good at pinning down what causes a problem
+  - It doesn't help with writting better code!
+
+Approaches
+ - In browser
+ - PhantomJS 
+ - Selenium
+
+Our first attempt: CasperJS
+ - Phantom JS is a headless browser
+ - CasperJS is a test framework
+ - Tests automate the headless browser
+ - But hard to debug, timing issues
+
+In browser as an option is good
+ - Back to Mocha
+ - Debugging with standard tools
+ - Running in a real browser, not a fake
+ - Test on anything (run your tests on an iPad?) 
+
+IFrame isolated test instances
+ - Can we run end to end tests from mocha?
+ - Can load the code into the test runner, but what about isolation
+ - IFrames allow isolation of code, but on the same domain allow interaction
+ - Create a new iframe for each test
+
+Show some example tests
+
+Automating more
+ - In browser is good
+ - But hard to integrate with tools
+ - And a bit manual
+ - Tests report back to server
+ - Scripts can automatically start a browser after server starts
+
+Back to Phantom
+ - Headless was good most of the time
+ - We can run our existing tests inside PhantomJS!
+ - Neater and runs without needing a UI
+
+CI
+ - Continuous integration is a server that automatically checks
+   out the code and runs the tests for every commit
+ - Use PhantomJS to run headless  
+ - No forgetting to run the tests
+ - Slower tests can still run, you get on with your work
+ - Jenkins CI, what a pain!
+
+CircleCI
+ - Hosted CI
+ - Integration with Github (demo?)
+ - Notifications
+
+BrowserStack
+ - PhantomJS on the CI and PhantomJS or Real Browser on dev machine
+ - What about Real Browsers on the CI?
+ - BrowserStack, a service for Cross Browser testing
+ - Has an API to start browser and go to URL, no other control
+ - So start test server and spawn BrowserStack browsers
+
+Big Final Demo
