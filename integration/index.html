@@ -70,6 +70,10 @@ margin: 0px;
 }
 
 
+    .right {
+    float: right;
+    }
+
     article {
       padding-top: 2em !important;
     }
@@ -115,6 +119,16 @@ margin: 0px;
     a.profile:after {
       content: "";
     }
+
+
+    img.flip {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
     </style>
   </head>
 
@@ -147,13 +161,40 @@ margin: 0px;
           <br/>
           @almostobsolete 
           <br/>
-          http://almostobsolete.net
+          <a href="http://almostobsolete.net">http://almostobsolete.net</a>
+          <hr/>
+          <small>Illustrations by Matt Thomas <a href="http://openbyhand.com/">openbyhand.com</a></small>
           </div>
         </center>
       </article>
 
       <!-- INTRODUCTION -->
 
+      <article>
+        <h3>
+          Software fails
+        </h3>
+        <center>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <img src="assets/images/_sketches_0021_SITTING.png" style="position:absolute;right:0;bottom:0"/>
+        </center>
+      </article>
+
+      <article>
+        <h3>
+          Automated tests are pretty useful
+        </h3>
+        <center>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+        <img src="assets/images/omgtesting.jpg"/>
+        </center>
+      </article>
 
       <article>
         <h3>
@@ -177,6 +218,7 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img class="right" width="489" height="370" src="assets/images/_sketches_0014_DRUNK-ROBOT-rev.png"/>
       </article>
 
       <article>
@@ -194,6 +236,7 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0002_SURPRISE.png" style="position:absolute;bottom:0;left:5%;"/>
       </article>
 
 
@@ -212,6 +255,7 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0020_DOG.png" style="float:right;position:absolute;right:0;bottom:0" />
       </article>
       
       
@@ -232,6 +276,8 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0017_DRINKING-ROBOT.png" style="height: 400px; float:right;position:absolute;right:0;bottom:0" />
+        
       </article>
 
       <article>
@@ -251,6 +297,7 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0007_WRITING.png" style="position: absolute; right: 0px; height: 400px"/>
       </article>
 
       <article>
@@ -270,6 +317,8 @@ margin: 0px;
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0008_WRITING-2.png" style="position: absolute; left: 20px; height: 400px"/>
+        
       </article>
 
       <article>
@@ -333,6 +382,11 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <center>
+          <br/>
+          <br/>
+          <img src="assets/images/pacman.png">
+        </center>
       </article>
 
       <article>
@@ -353,6 +407,7 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0012_IPAD.png" style="width:50%;height:50%;position:absolute;left:0;bottom:0"/>
       </article>
       
       
@@ -373,28 +428,16 @@ page.open(url, function (status) {
         </p>
       </article>
       
-      <article>
-        <h3>
-          Integration Tests with Mocha
-        </h3>
-        <p>
-          <ul>
-            <li>
-              <b>Problem:</b> Isolation
-            </li>
-            <li>
-              <b>Solution:</b> IFrames!
-            </li>
-          </ul>
-        </p>
-      </article>
 
       <article>
         <h3>
-          IFrame's for app isolation
+          Isolating app code for testing
         </h3>
         <p>
           <ul>
+            <li>
+              Tests require isolation, so we can muck around with the app then reset it
+            </li>
             <li>
               For each test: Create IFrame, load app within it
             </li>
@@ -409,6 +452,41 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0000_LAPTOP.png" style="position:absolute;left:50;bottom:0"/>
+      </article>
+
+      <article>
+        <h3>
+          IFrame's for app isolation
+        </h3>
+        <!-- <p> -->
+        <!--   <ul> -->
+        <!--     <li> -->
+        <!--       <b>Problem:</b> Isolation -->
+        <!--     </li> -->
+        <!--     <li> -->
+        <!--       <b>Solution:</b> IFrames! -->
+        <!--     </li> -->
+        <!--   </ul> -->
+        <!-- </p> -->
+        <pre style="top: 200px; width: 500px; position: absolute; left: 300px">
+iframe = document.createElement('iframe');
+iframe.src = "container.html";
+body.appendChild(iframe);
+iframe.addEventListener('load', function () {
+  var window = iframe.contentWindow,
+      $ = window.$;
+  // Run tests!
+});
+        </pre>
+        <img src="assets/images/_sketches_0009_HAPPY-WAVE.png" style="width: 350px; height: 316.5px; display: block; top: 350px; position: absolute; left: -30px"/>
+      </article>
+
+      <article>
+        <h3>
+          Demo: Integration tests in Mocha
+        </h3>
+        <img src="assets/images/_sketches_0004_SPACEMAN.png" style="position: absolute; top: 150px; left: 400px">
       </article>
 
       <article>
@@ -431,19 +509,10 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0016_COLLAPSED-ROBOT.png" style="height: 300px">
       </article>
       
       
-      <article>
-        <h3>
-          Demo: Integration tests in Mocha
-        </h3>
-        <p>
-          <ul>
-            TODO
-          </ul>
-        </p>
-      </article>
 
       <article>
         <h3>
@@ -459,6 +528,7 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0018_STUNNED.png" style="position:absolute; top: 280px; height: 400px;">
       </article>
 
       <article>
@@ -507,6 +577,7 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0001_SNEAK-AWAY.png">
       </article>
 
       <article>
@@ -526,6 +597,7 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <img src="assets/images/_sketches_0002_SURPRISE.png" style="height: 400px; position: absolute; top: 300px; left: 500px">
       </article>
       
       
@@ -546,6 +618,9 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        
+        <img src="assets/images/_sketches_0005_SPACEMAN-2.png" style="position: absolute; right: 0; bottom: -5px"/>
+        
       </article>
       
       <article>
@@ -566,16 +641,53 @@ page.open(url, function (status) {
             </li>
           </ul>
         </p>
+        <br/>
+        <img src="assets/images/_sketches_0006_SPACE-ROBOT.png"/>
       </article>
       
       <article>
         <h3>
           Demo: Tests multiple real browsers automatically on every commit!
         </h3>
+        <br/>
+        <br/>
+        <br/>
+        <center>
+        <img width="489" height="370" src="assets/images/_sketches_0014_DRUNK-ROBOT.png"/>
+        </center>
+      </article>
+
+      
+    <article>
+      <h3>
+        Thanks For Listening!
+      </h3>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="centered" >
+        Any questions?
+      <br/>
+      </div>
+      <p class="centered">
+      <br/>
+        <a href="http://almostobsolete.net/talks/testing/">http://almostobsolete.net/talks/testing/</a>
+        <br/>
+        <br/>
+        <br/>
+        </p>
         <p>
-          <ul>
-          
-          </ul>
+        Thomas Parslow
+          <br/>
+          tom@almostobsolete.net
+          <br/>
+          @almostobsolete
+          <br/>
+          <a href="http://almostobsolete.net">http://almostobsolete.net</a>
+          <br/>
+          <br/>
+          <small>Illustrations by Matt Thomas <a href="http://openbyhand.com/">openbyhand.com</a></small>
         </p>
       </article>
       
