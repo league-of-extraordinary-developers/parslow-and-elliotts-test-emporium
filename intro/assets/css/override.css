@@ -31,7 +31,11 @@ pre.code, pre.example {border: 2px dashed black}
 }
 
 #local ul li { padding-left: 30px; }
-#local ul li:before { content: "+ "; color: black;}
+#local ul li p { font-size: 70%; margin: 0; }
+#local article>ul>li:before { content: "+ "; color: black;}
+#local ul li ul li:before { content: "" }
+#local ul li ul { margin-top: 10px; }
+#local ul li ul li { font-size: 80%; }
 
 #postamble p {
   margin: 0px;
