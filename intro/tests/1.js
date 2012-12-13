@@ -14,9 +14,8 @@ function Point(a,b) {
 
 describe('Point', function() {
   var p, spy, stub;
-  beforeEach(function(done) {
+  beforeEach(function() {
     p = new Point(1,5);
-    done();
   });
 
   describe('getDistanceLeft()', function() {

@@ -55,7 +55,7 @@
           Mssrs. Thomas W. Parslow &amp; Simon J. Elliott
           <br/>
           <br/>
-          tom@almostobsolete.net / @almost <br/>
+          tom@almostobsolete.net / @almostobsolete <br/>
           simon@papercreatures.com / @purge
           </div>
         </center>
@@ -82,7 +82,7 @@
           What is testing?
         </h3>
         <ul>
-          <li></li>
+          <li>The process of making sure things work, and continue to work</li>
         </ul>
       </article>
 
@@ -101,7 +101,6 @@
         </h3>
         <ul>
           <li>Improve design and refactoring</li>
-          <li>Quality (test coverage)</li>
           <li>Ease maintainance burden (especially for others)</li>
           <li>Client satisfaction</li>
           <li>Manual testing is much more boring than writing tests</li>
@@ -128,7 +127,22 @@
           <li>High-level</li>
           <li>Test as an aggregate to check parts work together</li>
           <li>Slower, more dependencies</li>
+          <li>May catch problems that fall between the cracks</li>
         </ul>
+      </article>
+
+      <article>
+        <h3>
+          What is a test
+        </h3>
+        <pre>
+        describe("Test", function() {
+          it("checks we can add up", function() {
+            assert.equal(2 + 2, 4, "2 + 2 = 4");
+          });
+        });
+
+        </pre>
       </article>
 
       <article>
@@ -143,47 +157,45 @@
               <li>Refactor</li>
             </ul>
           </li>
-          <li>BDD - Behaviour Driven Development
-            <ul>
-              <li>TDD + some enterprisey stuff to keep managers happy.</li>
-              <li>Tests derived from specification</li>
-            </ul>
-          </li>
-          <li>Assertions
-          Checks the result of a test
-          <ul>
-            <li>ok()</li>
-            <li>equal()</li>
-            <li>deepEqual()</li>
-          </ul>
+          <li>Suite
+          <pre class="minimal" >
+            describe("Suite", function() { });
+          </pre>
           </li>
         </ul>
       </article>
 
+      <article>
+
+       <ul>
+          <li>Assertion
+        <pre>
+          assert.equal(2 + 2, 4, "2 + 2 = 4");
+          assert.ok(true, "is True");
+        </pre>
+          </li>
+       </ul>
+      </article>
       <article>
         <h3>
           Testing terminology
         </h3>
         <ul>
           <li>Spy<br/>
-          <p>Records information about how a method is used</p>
-          <ul>
-            <li>arguments</li>
-            <li>return values</li>
-            <li>context</li>
-          </ul>
+          <p>Records information about how a method is used such as arguments, return value</p>
           </li>
           <li>Stub
           <p>Fake methods with pre-programmed behaviour</p>
             <ul>
+              <li>Unit testing should concentrate on one particular part</li>
               <li>Wrap or replace existing function</li>
               <li>Returns pre-programmed value</li>
             </ul>
           </li>
           <li>Fixtures
             <ul>
-              <li>Set-up + tear-down.</li>
-              <li>Pre-set data of known quantities to test against. (such as filling a database)</li>
+              <li>Provide ready-made data before tests are run</li>
+              <li>Means the tests are run in a repeatable manner</li>
             </ul>
           </li>
         </ul>
@@ -232,14 +244,39 @@
       <article>
         <h3>Your first test</h3>
         <ul>
-          <li>Simple function to find the distance from a to b</li>
           <li>npm install -g mocha chai sinon</li>
-          <pre class="compact">
+          <li>Write a simple function to find the distance from a to b</li>
+          <li>Call the class Point with two parameters a, b</li>
+          <li>Has method getDistanceLeft() which returns </li>
+        </ul>
+
+          <pre>
 describe('Point', function() {
-  var p;
-  beforeEach(function(done) {
+  beforeEach(function() {
     p = new Point(1,5);
-    done();
+  });
+});
+          </pre>
+      </article>
+
+      <article>
+        <h3>Your first test</h3>
+          <pre>
+describe('getDistanceLeft()', function() {
+  it('correctly worked out distance', function() {
+    assert.equal(p.getDistanceLeft(), 4, "correct amount");
+  });
+});
+          </pre>
+      </article>
+
+      <article>
+        <h3>All together now...</h3>
+          <pre>
+describe('Point', function() {
+
+  beforeEach(function() {
+    p = new Point(1,5);
   });
 
   describe('getDistanceLeft()', function() {
@@ -247,10 +284,9 @@ describe('Point', function() {
       assert.equal(p.getDistanceLeft(), 4, "correct amount");
     });
   });
+
 });
           </pre>
-          <li>mocha -w test.js</li>
-        </ul>
       </article>
 
       <article>
@@ -275,19 +311,66 @@ function Point(a,b) {
       </article>
 
       <article>
+        <ul>
+          <li>mocha -w tests/1.js</li>
+        </ul>
+      </article>
+
+      <article>
         <h3>Add caching (Premature optimizations FTW!!)</h3>
         <ul>
-        <li>Working out the difference is complicated! lets cache it.</li>
-      </ul>
-            <pre class="compact">
+          <li>Working out the difference is a very slow computation. lets cache it!</li>
+          <li>Move out calculation to its own method, getter will lazily calculate and return cached value</li>
+          <li>How can we be sure that we are only running the slow method once???</li>
+          <li>What about cache invalidation???</li>
+          <li>lets use a spy!</li>
+        </ul>
+      </article>
+      <article>
+        <h3>007</h3>
+        <pre>
+beforeEach(function() {
+  spy = sinon.spy(p, "calculateDistanceLeft");
+});
+        </pre>
+        <ul>
+          <li>Augments the specified method</li>
+          <li>Returns an object which has lots of useful utility functions we can use in our tests</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Test how many times we run</h3>
+        <pre>
+it('cached result', function() {
+  p.getDistanceLeft();
+  p.getDistanceLeft();
+  assert.equal(spy.callCount, 1, "called once");
+});
+        </pre>
+      </article>
+
+      <article>
+        <h3>Invalidation</h3>
+        <pre>
+it('correctly invalidated', function() {
+  var res = [p.getDistanceLeft(), p.move(1), p.getDistanceLeft()];
+  assert.deepEqual(res, [4, undefined, 3], "We've moved");
+  assert.equal(spy.callCount, 2, "called again! invalidated!");
+});
+        </pre>
+      </article>
+
+      <article>
+        <h3>All together</h3>
+          <pre >
 describe('Caching', function() {
   beforeEach(function() {
     spy = sinon.spy(p, "calculateDistanceLeft");
   });
 
   it('cached result', function() {
-    p.getDistanceLeft();
-    p.getDistanceLeft();
+    p.getDistanceLeft(); p.getDistanceLeft();
     assert.equal(spy.callCount, 1, "called once");
     assert.equal(p.getDistanceLeft(), 4, "correct distance");
   });
@@ -298,7 +381,7 @@ describe('Caching', function() {
     assert.equal(spy.callCount, 2, "called again! invalidated!");
   });
 });
-            </pre>
+          </pre>
       </article>
 
       <article>
@@ -322,14 +405,35 @@ function Point(a,b) {
 };
         </pre>
       </article>
+
       <article>
         <h3>Are we there yet?</h3>
         <ul>
           <li>We need to know if we've arrived!</li>
+          <li>Lets add a function that tells us if we're at the destination</li>
+          <li>Called areWeThereYet()</li>
+          <li>We could mock the distanceLeft function to test its functionality!!!!</li>
+          <li>This calls for a STUB!</li>
         </ul>
-          <pre class="compact">
-describe('Are we there yet?', function() {
+      </article>
 
+      <article>
+        <h3>Stub</h3>
+        <pre>
+beforeEach(function() {
+  stub = sinon.stub(p, "getDistanceLeft");
+  stub.returns(0);
+});
+        </pre>
+        <ul>
+          <li>Will mock and override getDistanceLeft so that always returns zero</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>In Situ</h3>
+        <pre>
+describe('Are we there yet?', function() {
   describe('without stub', function() {
     it('knows we are not there already', function() {
       assert.ok(!p.areWeThereYet(), "we are not there!");
@@ -349,9 +453,35 @@ describe('Are we there yet?', function() {
           </pre>
       </article>
       <article>
+        <h3>The code</h3>
+        <pre class="compact">
+function Point(a,b) {
+  position = a;
+
+  this.move = function(distance) {
+    position += distance;
+    this.cachedDistance = null;
+  };
+
+  this.getDistanceLeft = function() {
+    return this.cachedDistance || this.calculateDistanceLeft();
+  };
+
+  this.calculateDistanceLeft = function() {
+    return this.cachedDistance = b - position;
+  };
+
+  this.areWeThereYet = function() {
+    return this.getDistanceLeft() === 0
+  };
+};
+        </pre>
+      </article>
+      <article>
         <h3>Conclusion</h3>
         <ul>
-          <li>WATCH IN AMAZEMENT has testing becomes sexy in PART II</li>
+          <li>IS testing SEXY yet?</li>
+          <li>No??? WATCH IN AMAZEMENT as testing becomes sex(y|ier) in PART II</li>
         </ul>
       </article>
     </section>

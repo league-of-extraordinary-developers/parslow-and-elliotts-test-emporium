@@ -2,12 +2,10 @@ var assert = require('chai').assert,
     sinon = require('sinon');
 
 function Point(a,b) {
-  this.position = a;
-  this.a = a;
-  this.b = b;
+  position = a;
 
   this.move = function(distance) {
-    this.position += distance;
+    position += distance;
     this.cachedDistance = null;
   };
 
@@ -16,7 +14,7 @@ function Point(a,b) {
   };
 
   this.calculateDistanceLeft = function() {
-    return this.cachedDistance = this.b - this.position;
+    return this.cachedDistance = b - position;
   };
 
   this.areWeThereYet = function() { return this.getDistanceLeft() === 0 };
