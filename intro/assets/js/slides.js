@@ -10,7 +10,7 @@
   URL: http://code.google.com/p/html5slides/
 */
 
-var PERMANENT_URL_PREFIX = './'
+var PERMANENT_URL_PREFIX = 'http://localhost:5000/intro/';
 
 var SLIDE_CLASSES = ['far-past', 'past', 'current', 'next', 'far-next'];
 
@@ -19,7 +19,7 @@ var PM_TOUCH_SENSITIVITY = 15;
 var curSlide;
 
 /* ---------------------------------------------------------------------- */
-/* classList polyfill by Eli Grey 
+/* classList polyfill by Eli Grey
  * (http://purl.eligrey.com/github/classList.js/blob/master/classList.js) */
 
 if (typeof document !== "undefined" && !("classList" in document.createElement("a"))) {
@@ -535,7 +535,7 @@ function addPrettify() {
   
   var el = document.createElement('script');
   el.type = 'text/javascript';
-  el.src = PERMANENT_URL_PREFIX + 'prettify.js';
+  el.src = PERMANENT_URL_PREFIX + 'assets/js/prettify.js';
   el.onload = function() {
     prettyPrint();
   }
@@ -556,7 +556,7 @@ function addGeneralStyle() {
   var el = document.createElement('link');
   el.rel = 'stylesheet';
   el.type = 'text/css';
-  el.href = PERMANENT_URL_PREFIX + 'styles.css';
+  el.href = PERMANENT_URL_PREFIX + 'assets/css/styles.css';
   document.body.appendChild(el);
   
   var el = document.createElement('meta');
@@ -586,7 +586,7 @@ function handleDomLoaded() {
 
   setupFrames();
 
-  // addFontStyle();
+  addFontStyle();
   addGeneralStyle();
   addPrettify();
   addEventListeners();

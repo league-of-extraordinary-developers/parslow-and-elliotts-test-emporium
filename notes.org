@@ -1,18 +1,18 @@
 * Intro
-  
+
 ** 1 - What is testing?
-   
+
   - Automating the tedious process of testing your applications
-   
+
 ** 1 - Why YOU should test?
 
    Your code will need testing, why not automate away your part
-   
+
    - Better code
    - Less bugs
    - Easier in the long run
    - Life is too short to test manually
-   
+
 ** 5 - Different types of tests
 
    - Unit Testing tests little bits of your code in one piece at a
@@ -20,12 +20,12 @@
      - Show example
    - Isolate "units" of functionality so tha when something breaks you
      know why and where
-     
+
    - Integration testing tests how the parts of your program work
      together. This can go as far as end to end testing where you test
      the complete program by simulating user actions and checking the
      response.
-   
+
 ** 5 - Testing terminology
 
    - Test
@@ -33,12 +33,12 @@
    - Assertions
 
    - TDD
-     
+
    - Spy
    - Stub
    - Mock
    - Fixtures
-   
+
 ** 3 - JS Testing Libaries
 
    - Jasmine
@@ -47,4 +47,4 @@
    - Chai
    - Sinon
 
-   
+

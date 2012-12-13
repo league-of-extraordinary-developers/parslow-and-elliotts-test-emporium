@@ -17,122 +17,34 @@
     <title>Testing</title>
 
     <meta charset='utf-8'>
-    <script
-      src='assets/js/slides.js'></script>
-    <script
-      src='assets/js/jquery.js'></script>
-    <script
-      src='assets/js/underscore.js'></script>
-    <script
-      src='assets/js/backbone.js'></script>
-    <script>
-      $(document).ready(function () {
-        $('button.run').click(function () {
-          var code = '(function () {' + ($(this).parents('article').find('pre').text()) + '}).call(this)';
-          eval(code);
-        });
-      });
-    </script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js'></script>
+    <script src='assets/js/slides.js'></script>
 
+    <!--<script src='assets/js/flickr.js'></script>-->
     <link rel="stylesheet" href="assets/css/styles.css">
-    
-    <style>
-    /* Your individual styles here, or just use inline styles if that’s
-       what you want. */
-      
-    * {font-family: "Bitstream Vera Sans Mono",courier, monospace;} 
-    #title {margin-left: 80px; margin-top: 170px; overflow: hidden; font-size: 50%; line-height: 120%; background: white; border: 0px; white-space: pre; color: black}
-      
-table {width: 400px; float: right; margin-bottom: 1em;}
-th {text-align: left;}
-pre {clear: both;}
+    <link rel="stylesheet" href="assets/css/override.css">
 
-/* * {font-family: 'lucida grande', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', helvetica, sans-serif;}*/
-#content, #postamble {margin: auto; width: 38em;}
-
-h2 { font-size: 1em; font-weight: bold; }
-h2:before {content: " * "}
-h3 { font-size: 1em; font-weight: bold}
-h3:before {content: " * "}
-#title,pre {background: white; border: 0px; font-family: "Bitstream Vera Sans Mono",courier, monospace;} 
-
-a, a:visited {
-    color: black !important;
-    text-decoration: none;
-    font-weight: bold;
-    }
-p { text-align: justify; /*margin-bottom: 2em; margin-top: 2em;*/}
-pre.code, pre.example {border: 2px dashed black}
-ul {list-style-type:none}
-ul li:before { content: "+ "; color: black;}
-#postamble p {
-margin: 0px;
-}
-
-
-    article {
-      padding-top: 2em !important;
-    }
-
-    .section {
-    text-align: center;
-    font-weight: bold;
-    text-size: 300%;
-    margin: 0.6em;
-    }
-      
-
-    .centered {
-    text-align: center;
-    }
-
-
-    ol li::before {
-      content: '';
-    }
-
-
-    pre.compact {
-    margin: 0; text-size: 80%; line-height: 80%
-    }
-
-    .run {
-      float: right;
-    }
-
-    #todo-items {
-    text-align: center;
-    margin: 2em;
-    }
-      
-    #todo-items .done-true {
-    text-decoration: line-through;
-    }
-
-    a.profile:before {
-      content: "";
-    }
-    a.profile:after {
-      content: "";
-    }
-    </style>
   </head>
 
-  <body>
+  <body id="local" style="display: none">
 
-    <section class='slides layout-regular '>
-      
+    <section class='slides layout-regular'>
+
       <!-- Your slides (<article>s) go here. Delete or comment out the
            slides below. -->
-        
-        
-      
       <article>
         <div id="title">
     _   _              _    ___  _            _     _                  _
    /_\ | |_ __  ___ __| |_ / _ \| |__ ___ ___| |___| |_ ___   _ _  ___| |_
   / _ \| | '  \/ _ (_-&lt;  _| (_) | '_ (_-&lt;/ _ \ / -_)  _/ -_)_| ' \/ -_)  _|
  /_/ \_\_|_|_|_\___/__/\__|\___/|_.__/__/\___/_\___|\__\___(_)_||_\___|\__|
+  ___                       ___              _
+ | _ \__ _ _ __  ___ _ _   / __|_ _ ___ __ _| |_ _  _ _ _ ___ ___
+ |  _/ _` | '_ \/ -_) '_| | (__| '_/ -_) _` |  _| || | '_/ -_|_-&lt;
+ |_| \__,_| .__/\___|_|    \___|_| \___\__,_|\__|\_,_|_| \___/__/
+          |_|
+
         </div>
         <center>
           <div>
@@ -140,15 +52,26 @@ margin: 0px;
           <!-- Formatting with BR tags, I rule! -->
           <br/>
           <br/>
-          Thomas W Parslow & Simon J Elliott
+          Mssrs. Thomas W. Parslow &amp; Simon J. Elliott
           <br/>
           <br/>
-          tom@almostobsolete.net / simon@papercreatures.com
-          <br/>
-          @almostobsolete @purge
-          <br/>
-          http://almostobsolete.net http://papercreatures.com
+          tom@almostobsolete.net / @almost <br/>
+          simon@papercreatures.com / @purge
           </div>
+        </center>
+      </article>
+
+      <article>
+        <center>
+        <h3>
+          Part I: A Formal Introduction to Testing
+        </h3>
+        <div>
+          <br/>
+          Presented By:<br/>
+          Simon Elliott Esq.<br/><br/>
+          simon@papercreatures.com / @purge
+        </div>
         </center>
       </article>
 
@@ -159,6 +82,16 @@ margin: 0px;
           What is testing?
         </h3>
         <ul>
+          <li></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          What isn't testing?
+        </h3>
+        <ul>
+          <li>Sexy</li>
         </ul>
       </article>
 
@@ -167,38 +100,19 @@ margin: 0px;
           Why YOU should test your code
         </h3>
         <ul>
-          
-        </ul>
-      </article>
-      
-      
-      <article>
-        <h3>
-          What is testing?
-        </h3>
-        <ul>
-          
+          <li>Increase productivity</li>
+          <li>Improve design and refactoring</li>
+          <li>Quality</li>
+          <li>Ease maintainance burden (especially for others)</li>
+          <li>Client satisfaction</li>
+          <li>Manual testing is more boring than writing tests</li>
         </ul>
       </article>
 
-      
-      <article>
-        <h3>
-          Types of test
-        </h3>
-        <ul>
-          
-        </ul>
-      </article>
-
-      
       <article>
         <h3>
           Unit Tests
         </h3>
-        <ul>
-          
-        </ul>
       </article>
 
       <article>
@@ -206,78 +120,107 @@ margin: 0px;
           Integration Tests
         </h3>
         <ul>
-          
+
         </ul>
       </article>
 
-      
+
       <article>
         <h3>
           Testing terminology
         </h3>
         <ul>
-          <li>Test</li>
-          <li>Unit</li>
           <li>Assertions</li>
         </ul>
       </article>
 
-      
+
       <article>
         <h3>
           Testing terminology
         </h3>
         <ul>
-          <li>TDD</li>
-          <li>BDD</li>
+          <li>TDD - Test Driven Development
+            <ul>
+              <li>Write (failing) tests first</li>
+              <li>Write minimal code to pass spec</li>
+              <li>Refactor</li>
+            </ul>
+          </li>
+          <li>BDD - Behaviour Driven Development
+            <ul>
+              <li>TDD + some enterprisey stuff to keep managers happy</li>
+            </ul>
+          </li>
         </ul>
       </article>
 
-      
       <article>
         <h3>
           Testing terminology
         </h3>
         <ul>
-          <li>Spy</li>
-          <li>Stub</li>
-          <li>Mock</li>
-          <li>Fixtures</li>
+          <li>Spy<br/>
+              Records information about how a method is used
+          <ul>
+            <li>arguments</li>
+            <li>return values</li>
+            <li>context</li>
+          </ul>
+          </li>
+          <li>Stub<br/>
+              Fake methods with pre-programmed behaviour
+            <ul>
+              <li>Wrap or replace existing function</li>
+              <li>Returns pre-programmed value</li>
+            </ul>
+          </li>
+          <li>Fixtures
+            <ul>
+              <li>Set-up + tear-down.</li>
+              <li>Pre-set data of known quantities to test against.</li>
+            </ul>
+          </li>
         </ul>
       </article>
 
-      
       <article>
         <h3>
           The JS Testing Libraries
         </h3>
         <ul>
-          <li>Jasmine</li> 
-          <li>QUnit</li>
-          <li>Mocha</li>
-          <li>Chai</li>
-          <li>Sinon</li>  
+         <li>Jasmine -
+         <a href="http://pivotal.github.com/jasmine/">http://pivotal.github.com/jasmine/</a></li>
+         <li>QUnit -
+         <a href="http://qunitjs.com/">http://qunitjs.com/</a></li>
+         <li>Chai -
+         <a href="http://chaijs.com/">http://chaijs.com/ (assertions)</a></li>
+         <li>Sinon -
+         <a href="http://sinonjs.org/">http://sinonjs.org/ (spies)</a></li>
+         <li>node-tap -
+         <a href="https://github.com/isaacs/node-tap">https://github.com/isaacs/node-tap</a></li>
+         <li>Mocha -
+         <a href="http://visionmedia.github.com/mocha/">http://visionmedia.github.com/mocha/</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Introduction to Mocha
+        </h3>
+        <ul>
+          <li>Easy asynchronous testing</li>
+          <li>Choose your own adventure
+            <ul>
+              <li>Assertion (chai, expect,js, should.js, better-assert)</li>
+              <li>Reporter (spec, junit (Jenkins), TAP, nyancat)</li>
+            </ul>
+          </li>
+          <li>Code Coverage</li>
+          <li>Generally Sane for both node and browser</li>
         </ul>
       </article>
 
     </section>
-
-    
-<script src="http://static.getclicky.com/js" type="text/javascript"></script>
-<script type="text/javascript">clicky.init(227423);</script>
-<noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/227423ns.gif" /></p></noscript>
-
-<script>
-  var hash = document.location.hash;
-  function track() {
-    if(hash !== document.location.hash) {
-      hash = document.location.hash;
-      if (hash != '#1') {
-        clicky.log( document.location.pathname + document.location.hash.slice(1), 'SLIDE ' + document.location.hash + ' - ' + document.title, 'pageview' )
-      }
-    }
-  }
-  window.addEventListener("hashchange", track, false);
-</script>
   </body>
 </html>

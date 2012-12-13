@@ -1,0 +1,88 @@
+* {font-family: "Bitstream Vera Sans Mono",courier, monospace;}
+#title { overflow: hidden; font-size: 50%; line-height: 120%; border: 0px; white-space: pre; color: black}
+
+table {width: 400px; float: right; margin-bottom: 1em;}
+th {text-align: left;}
+pre {clear: both;}
+
+/* * {font-family: 'lucida grande', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', helvetica, sans-serif;}*/
+#content, #postamble {margin: auto; width: 38em;}
+
+h2 { font-size: 1em; font-weight: bold; }
+h2:before {content: " * "}
+h3 { font-size: 1em; font-weight: bold}
+h3:before {content: " * "}
+#title,pre { border: 0px; font-family: "Bitstream Vera Sans Mono",courier, monospace;}
+
+a, a:visited {
+  color: black !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p { text-align: justify; /*margin-bottom: 2em; margin-top: 2em;*/}
+pre.code, pre.example {border: 2px dashed black}
+
+#local ul {
+  list-style-type:none;
+  padding:0;
+  margin: 0;
+  margin-top: 30px;
+}
+
+#local ul li { padding-left: 30px; }
+#local ul li:before { content: "+ "; color: black;}
+
+#postamble p {
+  margin: 0px;
+}
+
+article {
+  padding-top: 2em !important;
+  background-color: black !important;
+  background-size: cover;
+}
+
+article>* {
+  background-color: rgba(255,255,255,0.8);
+}
+
+#local article div {
+  padding: 30px;
+
+}
+
+.section {
+  text-align: center;
+  font-weight: bold;
+  text-size: 300%;
+  margin: 0.6em;
+}
+
+.centered {
+  text-align: center;
+}
+
+pre.compact {
+  margin: 0; text-size: 80%; line-height: 80%
+}
+
+.run {
+  float: right;
+}
+
+#todo-items {
+  text-align: center;
+  margin: 2em;
+}
+
+#todo-items .gone-true {
+  text-decoration: line-through;
+}
+
+a.profile:before {
+  content: "";
+}
+a.profile:after {
+  content: "";
+}
